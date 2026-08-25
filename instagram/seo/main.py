@@ -12,6 +12,9 @@ max_ht = 19
 min_kw = 11
 max_kw = 17
 
+anchor_ht = ["#irklost", "#irklostNYC", "#irklostArtist", "#nemoAKAirklost"]
+anchor_kw = ["irklost", "nemo aka irklost", "nemo the artist"]
+
 def main():
     with open(data_json, "r") as file:
         data = json.load(file)
@@ -29,6 +32,8 @@ def main():
     kw_num = random.randint(min_kw,max_kw)
     ht_list = random.choices(ht_all,k=ht_num)
     kw_list = random.choices(kw_all,k=kw_num)
+    ht_list += anchor_ht
+    kw_list += anchor_kw
     print(f"\n\n---COPY AND PASTE THE BELOW LINES FOR A <<< {cats[cat_choice]} >>> POST. CAPTION FOR POST, COMMENTS FOR STORIES AND REELS---\n\n")
     print(" ".join(ht_list))
     print(", ".join(kw_list))
